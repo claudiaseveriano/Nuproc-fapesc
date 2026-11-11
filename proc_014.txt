@@ -1,1 +1,191 @@
-H4sIAAAAAAAACpVUS24cRwzd1ykI9CYGWrAkBwEyu85oJAgI4okmnzWnipqhU11sk9UTILscRcgisAGdoi8WVM/XlmEpy+Kv+B4fWSVpCZqEkQ0V2uGDchYIaNCpdGIZzVWyfEeZNwJ3hJH/QgVMw0NkIwi0T3JVi16lU/FkJjAne9+zoatQCeGGdPiYPGNJOfqCJIEfUdkM4Xe0P+RPOIPZ+547mkDTYgoIU1wqRucqzKJkMPxdKubhg0/ssYYbXHKiTBAQ5krGYftVvXtRylRDs8HIGEShCWdr8a6ilBUL1uYEDoaWzXjJkQMGcpUhl5g7sj5mDAL3nDCOoU9ZqGHeLyN7HP4d/hG4buazxfQzYxK4ejur4TYZ6cG0uJmTqzhlUjLDIAY/UKJ79jw8KEt9KPZr4g2pje2Zq5JoiwZX5JWywOX5d+evL8/Pv3dVXHUBfhsek++jALWd0grz8OhZrIaptJ3KBlMeASilwC2lPPrm1zXQWYscXaXkezWxscUaFrc3+04WnOmIMWLG+9LMwXT1dlZG7PttXZgFzhhfz1Qxo6s6VGwpqxgU5IF9GQ8Z/NxjyiO+U5rNVSvMHNcCV7RVRiBIssEv6tFVlLFDcxeTEWuk0gUq+DLzrFKC/RpbDOguJ7CgSNtpBDqKhcy9meyeO68YzFXeUUFUeNvrokP1jNF9O4E56fAooWxM4Q7jJ4GjgEY582aL8sLNSq8TuHDXook8BdHJZ0J3t8n6VmzyVIv4VQk3+QvFmv3n9gJ6Fjg8BiyRByfunYC5H89CEDeNXJbtyWenWC/3WC9fhPWZH5/FNksbLqgkbTiTlSnhJ+O9o5XiBBovbYdpjTpu417kcAbT6Qy+mW7zgUq5IK9gOm2O1sYT59F4fTRel9mMXb46IXDfx66QvYizN/+Pszuy7e0GFDtAf56rX8peKhjnfid2SYHgHmPGFvApabMWPNoolUxtJ7AeHpYcIW+lJMtMhc6N2Gl2vU3ykrKOtw2UMt+zL3NSSbJSbBGCAI0H48jeT2OpPaAa7nZ5+808Sf8Kr7I00g16IXNn8B/BFOUoBAcAAA==
+#nome Analisar mérito das propostas
+#objetivo Realizar análise de mérito
+#macroprocesso Pesquisa
+#area Gerência de Pesquisa
+#dono Larissa Waskow - Equipe: Amanda Cabral
+
+#atores Área técnica, Gabinete da Presidência, Presidente, Avaliador Ad-hoc
+#entradas Análise de admissibilidade
+#saidas Resultado final de análise de mérito, Publicação FAPESC, Publicação no DOE, Inserção no SGPe
+#interessados Beneficiário, FAPESC, Universidades
+#normas Decreto 2060/2009
+#lgpd Vínculo empregatícios, Comprovante de rendimentos, CPF, e-mail
+#recursos SGPe, SIGFAPESC, Site FAPESC, Plataforma FAPESC, DOE
+#documentos Edital/Errata
+#parametros 
+#indicadores Quantidade de análises
+#gatilho Demanda de nova análise de mérito
+
+#etapas
+1: Complementar cadastro de chamada
+2: Seleção de Avaliadores
+3: Avaliação dos Projetos e resultado parcial
+4: Período Recursal e resultado final
+
+#atividade 1
+Etapa: 1
+Fornecedor: Área técnica
+Insumos: Resultado final da Análise de admissibilidade
+Ator: Área técnica
+Atividades: Complementar cadastro de chamada
+Saídas: Cadastro da chamada atualizado
+Cliente: Área técnica
+
+#atividade 2
+Etapa: 2
+Fornecedor: Área técnica
+Insumos: Cadastro da chamada atualizado
+Ator: Área técnica
+Atividades: Enviar convites para Avaliadores
+Regra: Acompanhar no SIGFAPESC - CCE (Convite enviado) CCA (Convite Aceito) CCF (Convite Finalizado)
+Saídas: Convites enviados
+Cliente: Área técnica
+
+#atividade 3
+Etapa: 2
+Fornecedor: Área técnica
+Insumos: Respostas aos convites
+Ator: Área técnica
+Atividades: Tratar situação onde faltam avaliadores
+Regra: Em caso de tempo hábil tentar obter novos avaliadores, caso contrário retificar cronograma do edital
+Saídas: Novos convites, Retificação do cronograma
+Cliente: Área técnica
+
+#atividade 4
+Etapa: 2
+Fornecedor: Área técnica
+Insumos: Novos convites, Retificação do cronograma
+Ator: Avaliadores 
+Atividades: Avaliar o mérito e registrar no SIGFAPESC
+Saídas: Registro de avaliação no SIGFAPESC
+Cliente: Área Técnica
+
+#atividade 5
+Etapa: 2
+Fornecedor: Área técnica
+Insumos: Registro de avaliação no SIGFAPESC
+Ator: Área técnica
+Atividades: Exportar relatório do SIGFAPESC com as avaliações de mérito parcial ranquear as propostas
+Saídas: Relatório com as avaliações de mérito parcial ranqueado
+Cliente: Área técnica
+
+#atividade 6
+Etapa: 2
+Fornecedor: Área técnica
+Insumos: Relatório com as avaliações de mérito parcial ranqueado
+Ator: Área técnica
+Atividades: Marcar reunião por e-mail com a CPAA para analisar e validar o resultado parcial de mérito
+Regra: Registro de marcação em papel na porta da sala
+Saídas: Marcação da reunião
+Cliente: CPAA
+
+#atividade 7
+Etapa: 2
+Fornecedor: Área Técnica
+Insumos: Marcação da reunião
+Ator: CPAA
+Atividades: Analisar e validar o resultado parcial de mérito
+Saídas: Resultado parcial de mérito consolidado
+Cliente: Área Técnica
+
+#atividade 8
+Etapa: 2
+Fornecedor: CPAA
+Insumos: Resultado parcial de mérito consolidado
+Ator: Área Técnica
+Atividades: Elaborar a ata da reunião com o resultado parcial de mérito e subir no SGPe
+Regra: inserir sigilo na ata e no resultado no SGPe
+Saídas: Ata da reunião com o resultado parcial de mérito no SGPe
+Cliente: CPAA
+
+#atividade 9
+Etapa: 2
+Fornecedor: Área Técnica
+Insumos: Ata da reunião com o resultado parcial de mérito no SGPe
+Ator: CPAA
+Atividades: Assinar a ata da reunião com o resultado parcial de mérito
+Regra: Os membros da CPAA que participaram da reunião e o coordenador de projeto 
+Saídas: Ata da reunião com o resultado parcial de mérito assinada pela CPAA
+Cliente: Área Técnica
+
+#atividade 10
+Etapa: 2
+Fornecedor: CPAA 
+Insumos: Ata da reunião com o resultado parcial de mérito assinada pela CPAA
+Ator: Área Técnica
+Atividades: Elaborar o documento com o resultado parcial de mérito para publicação e subir no SGPe
+Regra: Incluir sigilo e solicitar certificação da gerente
+Saídas: Documento com o resultado parcial de mérito para publicação inserido no SGPe
+Cliente: Gerente
+
+#atividade 11
+Etapa: 2
+Fornecedor: Área Técnica
+Insumos: Documento com o resultado parcial de mérito para publicação inserido no SGPe
+Ator: Gerente
+Atividades: Certificar o resultado parcial de mérito para publicação inserido no SGPe
+Regra: Solicitação de certificação pelo WhatsApp
+Saídas: O resultado parcial de mérito para publicação certificado no SGPe
+Cliente: Área Técnica
+
+#atividade 12
+Etapa: 2
+Fornecedor: Gerente
+Insumos: Resultado parcial de mérito para publicação certificado pela gerente
+Ator: Área Técnica
+Atividades: Tramitar o resultado parcial de mérito para publicação para assinatura do Presidente
+Saídas: Trâmite do resultado parcial de mérito pelo SGPe
+Cliente: Gabinete
+
+#atividade 13
+Etapa: 2
+Fornecedor: Gabinete
+Insumos: Trâmite do resultado parcial de mérito pelo SGPe
+Ator: Presidente
+Atividades: Assinar o resultado parcial de mérito
+Regra: Trâmite SGPe FAPESC/GABP/CONF
+Saídas: Resultado parcial de mérito assinado pelo Presidente
+Cliente: Área Técnica
+
+
+#atividade 14
+Etapa: 2
+Fornecedor: Presidente
+Insumos: Resultado parcial de mérito assinado pelo Presidente
+Ator: Área Técnica
+Atividades: Elaborar o texto da ata DEX e enviar para o Gabinete
+Regra: Enviar por e-mail
+Saídas: Envio por e-mail do texto da ata DEX
+Cliente: Gabinete
+
+#atividade 15
+Etapa: 2
+Fornecedor: Área Técnica 
+Insumos: Texto da ata DEX
+Ator: Gabinete
+Atividades: Elaborar a ata DEX parcial, inserir no SGPe de atas DEX e solicitar a assinatura da DEX (DIAF e DCTI e Presidente)
+Regra: SGPe 23/2026
+Saídas: Ata DEX parcial 
+Cliente: DEX 
+
+#atividade 16
+Etapa: 2
+Fornecedor: Gabinete
+Insumos: Ata DEX parcial 
+Ator: DEX 
+Atividades: Assinar a Ata DEX parcial
+Regra: As duas Diretoras e o Presidente assinam
+Saídas: Ata DEX parcial assinada
+Cliente: Área Técnica
+
+#atividade 17
+Etapa: 2
+Fornecedor: DEX
+Insumos: Ata DEX parcial assinada
+Ator: Área Técnica
+Atividades: Salvar a Ata DEX parcial e subir no SGPe do Edital
+Saídas: Ata DEX parcial assinada inserida no SGPe
+Cliente: Área Técnica
+
+#observacoes
+- 
